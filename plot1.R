@@ -19,4 +19,6 @@ setDT(PM25)
 total_PM25 <- PM25[,sum(Emissions), by = year][, Total_Emissions := V1][,V1 := NULL]
 
 #Plot Data
+png("plot1.png", width=480, height=480)
 barplot(total_PM25[, Total_Emissions], xlab = "Years", names = total_PM25[, year] ,ylab = "Total Emissions", main = "Total Emissions by Years")
+dev.off()
